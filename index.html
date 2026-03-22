@@ -531,10 +531,35 @@
         });
     }
 
-    // ===== ANALYTICS MOCK =====
-    function trackEvent(name) {
-        console.log(`[DirectShield Analytics] Event: ${name}`);
+    // ===== CTA HANDLER =====
+    ctaBtn.onclick = () => {
+        trackEvent('cta_clicked');
+        if (WIDGET_CONFIG.bookingUrl && WIDGET_CONFIG.bookingUrl !== '#book-direct') {
+            const target = document.querySelector(WIDGET_CONFIG.bookingUrl) || document.querySelector('[data-booking-engine]');
+            if (target && WIDGET_CONFIG.bookingUrl.startsWith('#')) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                closeBtn.click();
+            } else {
+                window.location.href = WIDGET_CONFIG.bookingUrl;
+            }
+        }
+    };
+
+    // ===== ANALYTICS =====
+    const widgetAnalytics = { propertyName: WIDGET_CONFIG.propertyName, otaSource: WIDGET_CONFIG.otaSource, impressions: 0, opens: 0, ctaClicks: 0, closes: 0, timeSpentMs: 0, sessions: [] };
+    function trackEvent(event) {
+        const timestamp = new Date().toISOString();
+        switch(event) {
+            case 'impression': widgetAnalytics.impressions++; break;
+            case 'widget_opened': widgetAnalytics.opens++; widgetAnalytics._openTime = Date.now(); break;
+            case 'widget_closed': widgetAnalytics.closes++; if (widgetAnalytics._openTime) { const s = Date.now() - widgetAnalytics._openTime; widgetAnalytics.timeSpentMs += s; widgetAnalytics.sessions.push({ duration: s, timestamp }); delete widgetAnalytics._openTime; } break;
+            case 'cta_clicked': widgetAnalytics.ctaClicks++; break;
+        }
+        const ctr = widgetAnalytics.impressions > 0 ? ((widgetAnalytics.opens / widgetAnalytics.impressions) * 100).toFixed(1) : 0;
+        const convRate = widgetAnalytics.opens > 0 ? ((widgetAnalytics.ctaClicks / widgetAnalytics.opens) * 100).toFixed(1) : 0;
+        console.log(`[DirectShield Analytics]`, JSON.stringify({ ...widgetAnalytics, ctr: `${ctr}%`, conversionRate: `${convRate}%`, lastEvent: event, lastEventTime: timestamp }, null, 2));
     }
+    trackEvent('impression');
     </script>
 </body>
 </html>
