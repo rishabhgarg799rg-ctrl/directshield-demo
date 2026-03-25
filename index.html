@@ -1,730 +1,177 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Villa Aether Mykonos — Luxury Private Villas</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold: #d4a853;
-            --gold-light: #e8b960;
-            --navy: #1e293b;
-            --navy-deep: #0f172a;
-        }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fafaf8; color: #1e293b; }
-        .font-serif { font-family: 'Cormorant Garamond', serif; }
+Villa
+Aether
+Villas
+Experience
+Reviews
+Book Direct
+Villa Aether Mykonos
+Mykonos, Greece
 
-        /* Smooth scroll */
-        html { scroll-behavior: smooth; }
+Villa Aether
+A private sanctuary perched above the Aegean Sea. Five bedrooms, infinity pool, and uninterrupted sunset views.
 
-        /* Hero parallax-like overlay */
-        .hero-overlay {
-            background: linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.1) 40%, rgba(15,23,42,0.6) 100%);
-        }
+Check Availability
+Explore Villas
+4.9
 
-        /* Gold underline */
-        .gold-line { width: 60px; height: 2px; background: var(--gold); }
+Guest Rating
 
-        /* Image hover */
-        .img-zoom { transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .img-zoom:hover { transform: scale(1.05); }
+247
 
-        /* Fade in on scroll */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+Verified Reviews
 
-        /* Booking card */
-        .booking-card {
-            background: linear-gradient(135deg, var(--navy), var(--navy-deep));
-        }
+5
 
-        /* Nav blur */
-        .nav-blur {
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
+Bedrooms
 
-        /* ===== DIRECTSHIELD WIDGET STYLES ===== */
-        @keyframes springIn {
-            0% { transform: scale(0.5) translateY(20px); opacity: 0; }
-            70% { transform: scale(1.05) translateY(-5px); opacity: 1; }
-            100% { transform: scale(1) translateY(0); opacity: 1; }
-        }
-        .animate-spring { animation: springIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+15%
 
-        @keyframes fillRing {
-            0% { stroke-dashoffset: 157; }
-            100% { stroke-dashoffset: 23.55; }
-        }
-        @keyframes pulseRing {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
-        }
-        .progress-ring-circle {
-            stroke-dasharray: 157;
-            stroke-dashoffset: 157;
-            animation: fillRing 6s cubic-bezier(0.4, 0, 0.2, 1) 3s forwards;
-            transform-origin: center;
-            transform: rotate(-90deg);
-        }
-        .progress-ring-circle.paused {
-            animation: fillRing 6s cubic-bezier(0.4, 0, 0.2, 1) 3s forwards,
-                       pulseRing 2s ease-in-out 9.5s infinite;
-        }
+Save vs Booking.com
 
-        @keyframes typewriter {
-            0% { width: 0; }
-            100% { width: 100%; }
-        }
-        @keyframes blink {
-            0%, 100% { border-color: transparent; }
-            50% { border-color: #d4a853; }
-        }
-        .typewriter-text {
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 2px solid transparent;
-            animation: typewriter 3.5s steps(30) 4.5s forwards, blink 0.8s 8.5s step-end infinite;
-            width: 0;
-        }
+Our Collection
 
-        @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 168, 83, 0.4); }
-            50% { box-shadow: 0 0 0 8px rgba(212, 168, 83, 0); }
-        }
-        .glow-pulse { animation: glowPulse 2s ease-in-out 7s infinite; }
+Curated Luxury Villas
+Villa AetherFROM €2,000/NIGHT
+Villa Aether
+5 Bedrooms • Infinity Pool • Sea View
 
-        @keyframes modalSlideUp {
-            0% { transform: translateY(20px) scale(0.95); opacity: 0; }
-            100% { transform: translateY(0) scale(1); opacity: 1; }
-        }
-        .modal-enter { animation: modalSlideUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+★★★★★
+4.9 (127 reviews)
+Villa PoseidonFROM €1,500/NIGHT
+Villa Poseidon
+4 Bedrooms • Private Beach • Sunset Terrace
 
-        @keyframes countUp {
-            0% { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .count-up { animation: countUp 0.6s ease-out forwards; }
+★★★★★
+4.8 (89 reviews)
+Villa HeliosFROM €1,800/NIGHT
+Villa Helios
+3 Bedrooms • Rooftop Jacuzzi • Town View
 
-        @keyframes barFill {
-            0% { width: 0%; }
-            100% { width: var(--fill-width); }
-        }
-        .bar-fill { animation: barFill 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards; width: 0%; }
+★★★★★
+4.9 (31 reviews)
+The Experience
 
-        @keyframes reviewFadeIn {
-            0% { opacity: 0; transform: translateY(12px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .review-stagger { opacity: 0; animation: reviewFadeIn 0.4s ease-out forwards; }
+Why Book Direct?
+Best Price Guarantee
+Save 15-20% compared to OTA platforms. No hidden fees, no middleman markup.
 
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
+Personal Concierge
+Direct communication with our team. Custom itineraries, airport transfers, and chef services.
 
-        @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-        .cta-shine {
-            position: relative;
-            overflow: hidden;
-        }
-        .cta-shine::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-            animation: shine 3s ease-in-out infinite;
-        }
+Flexible Cancellation
+Free cancellation up to 14 days before arrival. Plans change, we understand.
 
-        @keyframes nudge {
-            0%, 100% { transform: translateY(0); }
-            25% { transform: translateY(-4px); }
-            50% { transform: translateY(0); }
-            75% { transform: translateY(-2px); }
-        }
-        .nudge { animation: nudge 0.6s ease-in-out; }
+Guest Stories
 
-        @keyframes modalSlideDown {
-            0% { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(20px) scale(0.95); opacity: 0; }
-        }
-        .modal-exit { animation: modalSlideDown 0.3s ease-in forwards; }
-    </style>
-</head>
-<body>
+What Our Guests Say
+★★★★★
+"Absolutely stunning villa with breathtaking views. The staff went above and beyond to make our anniversary special. Booking direct saved us over €400 compared to Booking.com."
 
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-white/80 border-b border-slate-100/50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <span class="font-serif text-2xl font-semibold tracking-wide text-slate-800">Villa</span>
-                <span class="font-serif text-2xl font-light italic text-slate-400">Aether</span>
-            </div>
-            <div class="hidden md:flex items-center gap-10 text-[13px] font-semibold tracking-wide uppercase text-slate-500">
-                <a href="#villas" class="hover:text-slate-900 transition-colors">Villas</a>
-                <a href="#experience" class="hover:text-slate-900 transition-colors">Experience</a>
-                <a href="#reviews" class="hover:text-slate-900 transition-colors">Reviews</a>
-                <a href="#book" class="px-5 py-2.5 bg-[#1e293b] text-white rounded-full hover:bg-[#0f172a] transition-colors">Book Direct</a>
-            </div>
-        </div>
-    </nav>
+JW
+James W.
 
-    <!-- ===== HERO SECTION ===== -->
-    <section class="relative h-screen overflow-hidden">
-        <img src="villa_hero.jpg" alt="Villa Aether Mykonos" class="absolute inset-0 w-full h-full object-cover">
-        <div class="hero-overlay absolute inset-0"></div>
-        <div class="relative z-10 h-full flex flex-col justify-end pb-20 px-6 lg:px-16 max-w-7xl mx-auto">
-            <div class="gold-line mb-6"></div>
-            <p class="text-[11px] font-bold tracking-[0.3em] uppercase text-[#d4a853] mb-4">Mykonos, Greece</p>
-            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-semibold text-white leading-[0.95] mb-6">
-                Villa Aether
-            </h1>
-            <p class="text-white/70 text-lg md:text-xl font-light max-w-xl leading-relaxed mb-8">
-                A private sanctuary perched above the Aegean Sea. Five bedrooms, infinity pool, and uninterrupted sunset views.
-            </p>
-            <div class="flex items-center gap-6">
-                <a href="#book" class="px-8 py-4 bg-[#d4a853] text-[#0f172a] font-bold text-sm tracking-wide rounded-full hover:bg-[#e8b960] transition-colors">
-                    Check Availability
-                </a>
-                <a href="#villas" class="px-8 py-4 border border-white/30 text-white font-medium text-sm tracking-wide rounded-full hover:bg-white/10 transition-colors">
-                    Explore Villas
-                </a>
-            </div>
-        </div>
-    </section>
+London, UK • August 2025
 
-    <!-- ===== STATS BAR ===== -->
-    <section class="bg-[#1e293b] py-6">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-wrap justify-between items-center gap-6">
-            <div class="text-center flex-1">
-                <p class="text-[#d4a853] font-serif text-3xl font-semibold">4.9</p>
-                <p class="text-white/50 text-[11px] font-bold tracking-wider uppercase mt-1">Guest Rating</p>
-            </div>
-            <div class="w-px h-10 bg-white/10 hidden md:block"></div>
-            <div class="text-center flex-1">
-                <p class="text-[#d4a853] font-serif text-3xl font-semibold">247</p>
-                <p class="text-white/50 text-[11px] font-bold tracking-wider uppercase mt-1">Verified Reviews</p>
-            </div>
-            <div class="w-px h-10 bg-white/10 hidden md:block"></div>
-            <div class="text-center flex-1">
-                <p class="text-[#d4a853] font-serif text-3xl font-semibold">5</p>
-                <p class="text-white/50 text-[11px] font-bold tracking-wider uppercase mt-1">Bedrooms</p>
-            </div>
-            <div class="w-px h-10 bg-white/10 hidden md:block"></div>
-            <div class="text-center flex-1">
-                <p class="text-[#d4a853] font-serif text-3xl font-semibold">15%</p>
-                <p class="text-white/50 text-[11px] font-bold tracking-wider uppercase mt-1">Save vs Booking.com</p>
-            </div>
-        </div>
-    </section>
+★★★★★
+"We have stayed in luxury villas across the Mediterranean, and Villa Aether is in a league of its own. The infinity pool at sunset is something you will never forget."
 
-    <!-- ===== VILLAS SECTION ===== -->
-    <section id="villas" class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
-        <div class="fade-up text-center mb-16">
-            <p class="text-[11px] font-bold tracking-[0.3em] uppercase text-[#d4a853] mb-4">Our Collection</p>
-            <h2 class="font-serif text-4xl md:text-5xl font-semibold text-slate-900">Curated Luxury Villas</h2>
-            <div class="gold-line mx-auto mt-6"></div>
-        </div>
+SM
+Sophie M.
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Villa 1 -->
-            <div class="fade-up group">
-                <div class="overflow-hidden rounded-2xl h-[350px] relative">
-                    <img src="villa_hero.jpg" alt="Villa Aether" class="w-full h-full object-cover img-zoom">
-                    <div class="absolute top-4 right-4 bg-[#1e293b]/80 text-[#d4a853] text-[11px] font-bold tracking-wider px-3 py-1.5 rounded-full">FROM €2,000/NIGHT</div>
-                </div>
-                <div class="mt-5">
-                    <h3 class="font-serif text-2xl font-semibold text-slate-900">Villa Aether</h3>
-                    <p class="text-slate-500 text-sm mt-1">5 Bedrooms &bull; Infinity Pool &bull; Sea View</p>
-                    <div class="flex items-center gap-2 mt-3">
-                        <span class="text-[#d4a853] text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                        <span class="text-slate-400 text-xs font-medium">4.9 (127 reviews)</span>
-                    </div>
-                </div>
-            </div>
+Munich, Germany • July 2025
 
-            <!-- Villa 2 -->
-            <div class="fade-up group" style="transition-delay: 0.1s;">
-                <div class="overflow-hidden rounded-2xl h-[350px] relative">
-                    <img src="villa_pool.jpg" alt="Villa Poseidon" class="w-full h-full object-cover img-zoom">
-                    <div class="absolute top-4 right-4 bg-[#1e293b]/80 text-[#d4a853] text-[11px] font-bold tracking-wider px-3 py-1.5 rounded-full">FROM €1,500/NIGHT</div>
-                </div>
-                <div class="mt-5">
-                    <h3 class="font-serif text-2xl font-semibold text-slate-900">Villa Poseidon</h3>
-                    <p class="text-slate-500 text-sm mt-1">4 Bedrooms &bull; Private Beach &bull; Sunset Terrace</p>
-                    <div class="flex items-center gap-2 mt-3">
-                        <span class="text-[#d4a853] text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                        <span class="text-slate-400 text-xs font-medium">4.8 (89 reviews)</span>
-                    </div>
-                </div>
-            </div>
+Reserve Your Stay
 
-            <!-- Villa 3 -->
-            <div class="fade-up group" style="transition-delay: 0.2s;">
-                <div class="overflow-hidden rounded-2xl h-[350px] relative">
-                    <img src="villa_exterior.jpg" alt="Villa Helios" class="w-full h-full object-cover img-zoom">
-                    <div class="absolute top-4 right-4 bg-[#1e293b]/80 text-[#d4a853] text-[11px] font-bold tracking-wider px-3 py-1.5 rounded-full">FROM €1,800/NIGHT</div>
-                </div>
-                <div class="mt-5">
-                    <h3 class="font-serif text-2xl font-semibold text-slate-900">Villa Helios</h3>
-                    <p class="text-slate-500 text-sm mt-1">3 Bedrooms &bull; Rooftop Jacuzzi &bull; Town View</p>
-                    <div class="flex items-center gap-2 mt-3">
-                        <span class="text-[#d4a853] text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                        <span class="text-slate-400 text-xs font-medium">4.9 (31 reviews)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+Book Direct & Save
+Book directly with us and save 15-20% compared to third-party platforms. Best price guaranteed.
 
-    <!-- ===== EXPERIENCE SECTION ===== -->
-    <section id="experience" class="py-24 bg-[#f5f3ef]">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="fade-up text-center mb-16">
-                <p class="text-[11px] font-bold tracking-[0.3em] uppercase text-[#d4a853] mb-4">The Experience</p>
-                <h2 class="font-serif text-4xl md:text-5xl font-semibold text-slate-900">Why Book Direct?</h2>
-                <div class="gold-line mx-auto mt-6"></div>
-            </div>
+Check In
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="fade-up text-center p-8">
-                    <div class="w-16 h-16 bg-[#1e293b] rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4a853" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-                    </div>
-                    <h3 class="font-serif text-xl font-semibold mb-3">Best Price Guarantee</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Save 15-20% compared to OTA platforms. No hidden fees, no middleman markup.</p>
-                </div>
-                <div class="fade-up text-center p-8" style="transition-delay: 0.1s;">
-                    <div class="w-16 h-16 bg-[#1e293b] rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4a853" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    </div>
-                    <h3 class="font-serif text-xl font-semibold mb-3">Personal Concierge</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Direct communication with our team. Custom itineraries, airport transfers, and chef services.</p>
-                </div>
-                <div class="fade-up text-center p-8" style="transition-delay: 0.2s;">
-                    <div class="w-16 h-16 bg-[#1e293b] rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4a853" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    </div>
-                    <h3 class="font-serif text-xl font-semibold mb-3">Flexible Cancellation</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Free cancellation up to 14 days before arrival. Plans change, we understand.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+dd/mm/yyyy
+Check Out
 
-    <!-- ===== TESTIMONIALS SECTION ===== -->
-    <section id="reviews" class="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
-        <div class="fade-up text-center mb-16">
-            <p class="text-[11px] font-bold tracking-[0.3em] uppercase text-[#d4a853] mb-4">Guest Stories</p>
-            <h2 class="font-serif text-4xl md:text-5xl font-semibold text-slate-900">What Our Guests Say</h2>
-            <div class="gold-line mx-auto mt-6"></div>
-        </div>
+dd/mm/yyyy
+Guests
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="fade-up bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
-                <div class="text-[#d4a853] text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="text-slate-600 text-sm leading-relaxed italic mb-6">"Absolutely stunning villa with breathtaking views. The staff went above and beyond to make our anniversary special. Booking direct saved us over &euro;400 compared to Booking.com."</p>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-[#1e293b] rounded-full flex items-center justify-center text-[#d4a853] font-bold text-xs">JW</div>
-                    <div>
-                        <p class="text-sm font-semibold text-slate-800">James W.</p>
-                        <p class="text-xs text-slate-400">London, UK &bull; August 2025</p>
-                    </div>
-                </div>
-            </div>
-            <div class="fade-up bg-white p-8 rounded-2xl border border-slate-100 shadow-sm" style="transition-delay: 0.1s;">
-                <div class="text-[#d4a853] text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="text-slate-600 text-sm leading-relaxed italic mb-6">"We have stayed in luxury villas across the Mediterranean, and Villa Aether is in a league of its own. The infinity pool at sunset is something you will never forget."</p>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-[#1e293b] rounded-full flex items-center justify-center text-[#d4a853] font-bold text-xs">SM</div>
-                    <div>
-                        <p class="text-sm font-semibold text-slate-800">Sophie M.</p>
-                        <p class="text-xs text-slate-400">Munich, Germany &bull; July 2025</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+2 Guests
+Check Availability & Price
+No payment required. Free cancellation up to 14 days before arrival.
 
-    <!-- ===== BOOKING SECTION ===== -->
-    <section id="book" class="py-24 bg-[#f5f3ef]" data-booking-engine>
-        <div class="max-w-3xl mx-auto px-6 lg:px-12">
-            <div class="fade-up text-center mb-12">
-                <p class="text-[11px] font-bold tracking-[0.3em] uppercase text-[#d4a853] mb-4">Reserve Your Stay</p>
-                <h2 class="font-serif text-4xl md:text-5xl font-semibold text-slate-900">Book Direct & Save</h2>
-                <div class="gold-line mx-auto mt-6"></div>
-                <p class="text-slate-500 text-sm mt-6 max-w-lg mx-auto">Book directly with us and save 15-20% compared to third-party platforms. Best price guaranteed.</p>
-            </div>
+Villa Aether
+Luxury private villas in Mykonos, Greece. Book direct for the best experience and rates.
 
-            <div class="fade-up booking-card rounded-3xl p-10 text-center">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div>
-                        <label class="text-white/50 text-[11px] font-bold tracking-wider uppercase block mb-2">Check In</label>
-                        <input type="date" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#d4a853]">
-                    </div>
-                    <div>
-                        <label class="text-white/50 text-[11px] font-bold tracking-wider uppercase block mb-2">Check Out</label>
-                        <input type="date" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#d4a853]">
-                    </div>
-                    <div>
-                        <label class="text-white/50 text-[11px] font-bold tracking-wider uppercase block mb-2">Guests</label>
-                        <select class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#d4a853] appearance-none">
-                            <option value="2">2 Guests</option>
-                            <option value="4">4 Guests</option>
-                            <option value="6">6 Guests</option>
-                            <option value="8">8 Guests</option>
-                            <option value="10">10 Guests</option>
-                        </select>
-                    </div>
-                </div>
-                <button class="w-full py-4 bg-[#d4a853] text-[#0f172a] font-bold text-sm tracking-wide rounded-xl hover:bg-[#e8b960] transition-colors">
-                    Check Availability & Price
-                </button>
-                <p class="text-white/40 text-[11px] mt-4">No payment required. Free cancellation up to 14 days before arrival.</p>
-            </div>
-        </div>
-    </section>
+Contact
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="bg-[#0f172a] py-16 px-6 lg:px-12">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-start gap-10">
-                <div>
-                    <span class="font-serif text-2xl font-semibold text-white">Villa</span>
-                    <span class="font-serif text-2xl font-light italic text-white/40"> Aether</span>
-                    <p class="text-white/30 text-sm mt-3 max-w-xs">Luxury private villas in Mykonos, Greece. Book direct for the best experience and rates.</p>
-                </div>
-                <div class="flex gap-16">
-                    <div>
-                        <p class="text-white/50 text-[11px] font-bold tracking-wider uppercase mb-4">Contact</p>
-                        <p class="text-white/70 text-sm">info@villaaether.com</p>
-                        <p class="text-white/70 text-sm mt-1">+30 694 123 4567</p>
-                    </div>
-                    <div>
-                        <p class="text-white/50 text-[11px] font-bold tracking-wider uppercase mb-4">Location</p>
-                        <p class="text-white/70 text-sm">Mykonos, Cyclades</p>
-                        <p class="text-white/70 text-sm mt-1">Greece 84600</p>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-white/30 text-xs">&copy; 2026 Villa Aether. All rights reserved.</p>
-                <p class="text-white/20 text-[10px]">Trust verified by <span class="text-[#d4a853]/60">DirectShield</span></p>
-            </div>
-        </div>
-    </footer>
+info@villaaether.com
 
-    <!-- ===== THE DIRECTSHIELD TRUST WIDGET — MIDNIGHT GOLD ===== -->
-    <div id="trust-widget-container" class="fixed bottom-6 right-6 z-[100]">
++30 694 123 4567
 
-        <!-- ZEIGARNIK BADGE -->
-        <button id="badge-trigger" class="animate-spring flex items-center gap-3.5 bg-white p-3 pr-5 rounded-full shadow-[0_15px_45px_rgba(0,0,0,0.15)] border border-slate-100 hover:shadow-[0_20px_55px_rgba(0,0,0,0.2)] transition-all duration-300 group glow-pulse cursor-pointer">
-            <div class="relative w-[46px] h-[46px] flex items-center justify-center">
-                <svg class="absolute inset-0" width="46" height="46" viewBox="0 0 54 54">
-                    <circle cx="27" cy="27" r="25" fill="none" stroke="#e2e8f0" stroke-width="3"/>
-                    <circle class="progress-ring-circle paused" cx="27" cy="27" r="25" fill="none" stroke="#d4a853" stroke-width="3" stroke-linecap="round"/>
-                </svg>
-                <div class="bg-[#1e293b] p-2 rounded-full text-[#d4a853] z-10">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <polyline points="9 12 11 14 15 10"/>
-                    </svg>
-                </div>
-            </div>
-            <div class="text-left min-w-[160px]">
-                <div id="badge-status-text" class="text-[13px] font-semibold text-slate-700 leading-tight">
-                    <span class="typewriter-text inline-block">Calculating your direct savings...</span>
-                </div>
-                <div id="badge-savings-teaser" class="text-[10px] text-[#d4a853] font-extrabold tracking-wider uppercase mt-0.5 hidden">
-                    Savings found &mdash; Tap to reveal
-                </div>
-                <div id="badge-initial-sub" class="text-[10px] text-slate-400 font-bold tracking-wider uppercase">
-                    Direct Savings Calculator
-                </div>
-            </div>
-        </button>
+Location
 
-        <!-- MODAL -->
-        <div id="review-modal" class="hidden absolute bottom-20 right-0 w-[400px] bg-white rounded-[28px] shadow-[0_30px_70px_rgba(0,0,0,0.25)] border border-slate-100 overflow-hidden">
+Mykonos, Cyclades
 
-            <!-- SAVINGS HEADER -->
-            <div id="modal-header" class="p-5 pb-4 relative overflow-hidden" style="background: linear-gradient(135deg, #1e293b, #0f172a);">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-[#d4a853]/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                <button id="close-modal" class="absolute top-3 right-3 w-7 h-7 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white/60 hover:text-white text-sm transition-all z-10">&times;</button>
+Greece 84600
 
-                <p class="text-[10px] font-bold tracking-[0.2em] text-[#d4a853] uppercase mb-1">Direct Booking Advantage</p>
-                <div class="flex items-baseline gap-1.5">
-                    <span class="text-[10px] text-white/50 font-medium">You save</span>
-                    <span id="savings-amount" class="text-3xl font-extrabold text-[#d4a853] count-up">&euro;0</span>
-                    <span id="ota-comparison-text" class="text-[10px] text-white/50 font-medium">vs Airbnb</span>
-                </div>
+© 2026 Villa Aether. All rights reserved.
 
-                <!-- Price Bars -->
-                <div class="mt-4 space-y-2.5">
-                    <div>
-                        <div class="flex justify-between items-center mb-1">
-                            <div class="flex items-center gap-1.5">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#FF5A5F"><path d="M12.001 18.275c-1.353-1.697-2.148-3.184-2.413-4.457-.263-1.027-.16-1.848.291-2.465.477-.71 1.188-1.056 2.121-1.056s1.643.345 2.12 1.063c.446.61.558 1.432.286 2.465-.291 1.298-1.085 2.785-2.412 4.458zm9.601 1.14c-.185 1.246-1.034 2.28-2.2 2.783-2.253.98-4.483-.583-6.392-2.704 3.157-3.951 3.74-7.028 2.385-9.018-.795-1.14-1.933-1.695-3.394-1.695-2.944 0-4.563 2.49-3.927 5.382.37 1.565 1.352 3.343 2.917 5.332-.98 1.085-1.91 1.856-2.732 2.333-.636.344-1.245.558-1.828.609-2.679.399-4.778-2.2-3.825-4.88.132-.345.395-.98.845-1.961l.025-.053c1.464-3.178 3.242-6.79 5.285-10.795l.053-.132.58-1.116c.45-.822.635-1.19 1.351-1.643.346-.21.77-.315 1.246-.315.954 0 1.698.558 2.016 1.007.158.239.345.557.582.953l.558 1.089.08.159c2.041 4.004 3.821 7.608 5.279 10.794l.026.025.533 1.22.318.764c.243.613.294 1.222.213 1.858zm1.22-2.39c-.186-.583-.505-1.271-.9-2.094v-.03c-1.889-4.006-3.642-7.608-5.307-10.844l-.111-.163C15.317 1.461 14.468 0 12.001 0c-2.44 0-3.476 1.695-4.535 3.898l-.081.16c-1.669 3.236-3.421 6.843-5.303 10.847v.053l-.559 1.22c-.21.504-.317.768-.345.847C-.172 20.74 2.611 24 5.98 24c.027 0 .132 0 .265-.027h.372c1.75-.213 3.554-1.325 5.384-3.317 1.829 1.989 3.635 3.104 5.382 3.317h.372c.133.027.239.027.265.027 3.37.003 6.152-3.261 4.802-6.975z"/></svg>
-                                <span class="text-[11px] font-medium text-white/60">Airbnb Price</span>
-                            </div>
-                            <span id="ota-price-display" class="text-[12px] font-semibold text-white/70">&euro;2,360 / night</span>
-                        </div>
-                        <div class="h-2 bg-white/10 rounded-full overflow-hidden">
-                            <div class="bar-fill h-full rounded-full" style="--fill-width: 100%; background: linear-gradient(90deg, #d4a853, #c49b45);"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between items-center mb-1">
-                            <div class="flex items-center gap-1.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e8b960" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                <span class="text-[12px] font-semibold text-white">Direct Price</span>
-                            </div>
-                            <span id="direct-price-display" class="text-[13px] font-bold text-white">&euro;2,000 / night</span>
-                        </div>
-                        <div class="h-2 bg-white/10 rounded-full overflow-hidden">
-                            <div class="bar-fill h-full rounded-full" style="--fill-width: 82%; background: linear-gradient(90deg, #e8b960, #f0ca70);"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+Trust verified by DirectShield
 
-            <!-- REVIEWS -->
-            <div class="px-5 pb-5">
-                <div class="flex items-center justify-between mb-4 pt-3 border-t border-slate-100">
-                    <div class="flex items-center gap-2">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="#FF5A5F"><path d="M12.001 18.275c-1.353-1.697-2.148-3.184-2.413-4.457-.263-1.027-.16-1.848.291-2.465.477-.71 1.188-1.056 2.121-1.056s1.643.345 2.12 1.063c.446.61.558 1.432.286 2.465-.291 1.298-1.085 2.785-2.412 4.458zm9.601 1.14c-.185 1.246-1.034 2.28-2.2 2.783-2.253.98-4.483-.583-6.392-2.704 3.157-3.951 3.74-7.028 2.385-9.018-.795-1.14-1.933-1.695-3.394-1.695-2.944 0-4.563 2.49-3.927 5.382.37 1.565 1.352 3.343 2.917 5.332-.98 1.085-1.91 1.856-2.732 2.333-.636.344-1.245.558-1.828.609-2.679.399-4.778-2.2-3.825-4.88.132-.345.395-.98.845-1.961l.025-.053c1.464-3.178 3.242-6.79 5.285-10.795l.053-.132.58-1.116c.45-.822.635-1.19 1.351-1.643.346-.21.77-.315 1.246-.315.954 0 1.698.558 2.016 1.007.158.239.345.557.582.953l.558 1.089.08.159c2.041 4.004 3.821 7.608 5.279 10.794l.026.025.533 1.22.318.764c.243.613.294 1.222.213 1.858zm1.22-2.39c-.186-.583-.505-1.271-.9-2.094v-.03c-1.889-4.006-3.642-7.608-5.307-10.844l-.111-.163C15.317 1.461 14.468 0 12.001 0c-2.44 0-3.476 1.695-4.535 3.898l-.081.16c-1.669 3.236-3.421 6.843-5.303 10.847v.053l-.559 1.22c-.21.504-.317.768-.345.847C-.172 20.74 2.611 24 5.98 24c.027 0 .132 0 .265-.027h.372c1.75-.213 3.554-1.325 5.384-3.317 1.829 1.989 3.635 3.104 5.382 3.317h.372c.133.027.239.027.265.027 3.37.003 6.152-3.261 4.802-6.975z"/></svg>
-                        <span class="text-[12px] font-bold text-slate-700">Airbnb Verified Reviews</span>
-                    </div>
-                    <div class="flex items-center gap-1.5">
-                        <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-                        <span class="text-[10px] text-emerald-500 font-bold">VERIFIED</span>
-                    </div>
-                </div>
-                <div id="reviews-list" class="space-y-5 max-h-[280px] overflow-y-auto hide-scrollbar"></div>
-            </div>
 
-            <!-- CTA -->
-            <div class="px-5 pt-3 pb-3">
-                <button id="cta-book-direct" class="cta-shine w-full py-3.5 rounded-2xl font-bold text-[13px] tracking-wide transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]" style="background: linear-gradient(135deg, #d4a853, #c49b45); color: #0f172a;">
-                    Book Direct &amp; Save &euro;360
-                </button>
-            </div>
+€360 savings found
+Savings found — Tap to reveal
+×
+Direct Booking Advantage
 
-            <!-- FOOTER -->
-            <div class="px-5 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-center gap-1.5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#d4a853" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span class="text-[10px] text-slate-400 font-medium">Verified by <span class="font-bold text-[#d4a853]">DirectShield</span> Trust Engine</span>
-            </div>
-        </div>
-    </div>
+You save
+€360
+vs Airbnb
+B.
+Booking.com Price
+€2,360 / night
+Direct Price
+€2,000 / night
+B.
+Booking.com Verified Reviews
+VERIFIED
+JW
+James W. 🇬🇧
 
-    <!-- ===== SCRIPTS ===== -->
-    <script>
-    // Fade-in on scroll
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
+London, UK • Aug 2025
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+★★★★★
+"Absolutely stunning. The views from the infinity pool are unreal. Staff arranged a private sunset dinner that we will never forget."
 
-    // ===== DIRECTSHIELD WIDGET CONFIG =====
-    const WIDGET_CONFIG = {
-        propertyName: "Villa Aether",
-        otaSource: "booking",
-        directPrice: 2000,
-        otaCommissionPercent: 18,
-        currency: "\u20AC",
-        bookingUrl: "#book",
-        widgetBrandName: "DirectShield",
-        analyticsEndpoint: null,
-        reviews: [
-            { name: "James W.", initials: "JW", flag: "\uD83C\uDDEC\uD83C\uDDE7", location: "London, UK", date: "Aug 2025", stars: 5, text: "Absolutely stunning. The views from the infinity pool are unreal. Staff arranged a private sunset dinner that we will never forget." },
-            { name: "Sophie M.", initials: "SM", flag: "\uD83C\uDDE9\uD83C\uDDEA", location: "Munich, Germany", date: "Jul 2025", stars: 5, text: "We have stayed in luxury villas across the Mediterranean, and Villa Aether is in a league of its own. Worth every cent." },
-            { name: "Michael R.", initials: "MR", flag: "\uD83C\uDDFA\uD83C\uDDF8", location: "New York, USA", date: "Jun 2025", stars: 5, text: "Booked direct and saved over $400 compared to Booking.com. The concierge service was impeccable. Already planning our return." },
-            { name: "Claire D.", initials: "CD", flag: "\uD83C\uDDEB\uD83C\uDDF7", location: "Paris, France", date: "Sep 2025", stars: 5, text: "Pure perfection. The villa is even more beautiful than the photos. The private chef experience was the highlight of our trip." },
-            { name: "Marco B.", initials: "MB", flag: "\uD83C\uDDEE\uD83C\uDDF9", location: "Milan, Italy", date: "Aug 2025", stars: 5, text: "Exceptional in every way. The location is private yet close to Mykonos Town. We felt like royalty for a week." }
-        ]
-    };
+SM
+Sophie M. 🇩🇪
 
-    // ===== OTA CONFIG =====
-    const OTA_CONFIGS = {
-        airbnb: { name: "Airbnb", color: "#FF5A5F", logo: "airbnb" },
-        booking: { name: "Booking.com", color: "#003580", logo: "booking" },
-        vrbo: { name: "Vrbo", color: "#003580", logo: "vrbo" },
-        agoda: { name: "Agoda", color: "#003580", logo: "agoda" },
-        expedia: { name: "Expedia", color: "#FFCC00", logo: "expedia" },
-        google: { name: "Google", color: "#4285F4", logo: "google" }
-    };
+Munich, Germany • Jul 2025
 
-    const OTA_LOGOS = {
-        airbnb: '<svg width="20" height="20" viewBox="0 0 24 24" fill="#FF5A5F"><path d="M12.001 18.275c-1.353-1.697-2.148-3.184-2.413-4.457-.263-1.027-.16-1.848.291-2.465.477-.71 1.188-1.056 2.121-1.056s1.643.345 2.12 1.063c.446.61.558 1.432.286 2.465-.291 1.298-1.085 2.785-2.412 4.458zm9.601 1.14c-.185 1.246-1.034 2.28-2.2 2.783-2.253.98-4.483-.583-6.392-2.704 3.157-3.951 3.74-7.028 2.385-9.018-.795-1.14-1.933-1.695-3.394-1.695-2.944 0-4.563 2.49-3.927 5.382.37 1.565 1.352 3.343 2.917 5.332-.98 1.085-1.91 1.856-2.732 2.333-.636.344-1.245.558-1.828.609-2.679.399-4.778-2.2-3.825-4.88.132-.345.395-.98.845-1.961l.025-.053c1.464-3.178 3.242-6.79 5.285-10.795l.053-.132.58-1.116c.45-.822.635-1.19 1.351-1.643.346-.21.77-.315 1.246-.315.954 0 1.698.558 2.016 1.007.158.239.345.557.582.953l.558 1.089.08.159c2.041 4.004 3.821 7.608 5.279 10.794l.026.025.533 1.22.318.764c.243.613.294 1.222.213 1.858zm1.22-2.39c-.186-.583-.505-1.271-.9-2.094v-.03c-1.889-4.006-3.642-7.608-5.307-10.844l-.111-.163C15.317 1.461 14.468 0 12.001 0c-2.44 0-3.476 1.695-4.535 3.898l-.081.16c-1.669 3.236-3.421 6.843-5.303 10.847v.053l-.559 1.22c-.21.504-.317.768-.345.847C-.172 20.74 2.611 24 5.98 24c.027 0 .132 0 .265-.027h.372c1.75-.213 3.554-1.325 5.384-3.317 1.829 1.989 3.635 3.104 5.382 3.317h.372c.133.027.239.027.265.027 3.37.003 6.152-3.261 4.802-6.975z"/></svg>',
-        booking: '<svg width="20" height="20" viewBox="0 0 24 24" fill="#003580"><text x="2" y="18" font-size="16" font-weight="bold" font-family="Arial">B</text></svg>',
-        vrbo: '<svg width="20" height="20" viewBox="0 0 24 24" fill="#003580"><circle cx="12" cy="12" r="10" stroke="#003580" stroke-width="2" fill="none"/><text x="8" y="16" font-size="12" font-weight="bold" font-family="Arial" fill="#003580">VRBO</text></svg>',
-        agoda: '<svg width="20" height="20" viewBox="0 0 24 24" fill="#003580"><rect x="2" y="2" width="20" height="20" rx="4" fill="#003580"/><text x="6" y="18" font-size="14" font-weight="bold" font-family="Arial" fill="white">A</text></svg>',
-        expedia: '<svg width="20" height="20" viewBox="0 0 24 24" fill="#FFCC00"><circle cx="12" cy="12" r="10" fill="#FFCC00"/><text x="9" y="16" font-size="12" font-weight="bold" font-family="Arial" fill="#003580">E</text></svg>',
-        google: '<svg width="20" height="20" viewBox="0 0 24 24" fill="#4285F4"><circle cx="12" cy="12" r="10" fill="#4285F4"/><text x="9" y="16" font-size="12" font-weight="bold" font-family="Arial" fill="white">G</text></svg>'
-    };
+★★★★★
+"We have stayed in luxury villas across the Mediterranean, and Villa Aether is in a league of its own. Worth every cent."
 
-    const ota = OTA_CONFIGS[WIDGET_CONFIG.otaSource] || OTA_CONFIGS.airbnb;
-    const otaLogo = OTA_LOGOS[WIDGET_CONFIG.otaSource] || OTA_LOGOS.airbnb;
-    const otaPrice = Math.round(WIDGET_CONFIG.directPrice * (1 + WIDGET_CONFIG.otaCommissionPercent / 100));
-    const savings = otaPrice - WIDGET_CONFIG.directPrice;
-    const directBarWidth = Math.round((WIDGET_CONFIG.directPrice / otaPrice) * 100);
+MR
+Michael R. 🇺🇸
 
-    // ===== DOM ELEMENTS =====
-    const badge = document.getElementById('badge-trigger');
-    const modal = document.getElementById('review-modal');
-    const closeBtn = document.getElementById('close-modal');
-    const statusText = document.getElementById('badge-status-text');
-    const savingsTeaser = document.getElementById('badge-savings-teaser');
-    const initialSub = document.getElementById('badge-initial-sub');
-    const savingsAmount = document.getElementById('savings-amount');
-    const ctaBtn = document.getElementById('cta-book-direct');
-    const list = document.getElementById('reviews-list');
+New York, USA • Jun 2025
 
-    // ===== ZEIGARNIK BADGE STATE MACHINE =====
-    let modalOpen = false;
+★★★★★
+"Booked direct and saved over $400 compared to Booking.com. The concierge service was impeccable. Already planning our return."
 
-    setTimeout(() => {
-        statusText.innerHTML = `<span class="text-[#d4a853] font-extrabold">${WIDGET_CONFIG.currency}${savings} savings found</span>`;
-        savingsTeaser.classList.remove('hidden');
-        initialSub.classList.add('hidden');
-        badge.classList.add('nudge');
-    }, 10000);
+CD
+Claire D. 🇫🇷
 
-    setInterval(() => {
-        if (!modalOpen) {
-            badge.classList.remove('nudge');
-            void badge.offsetWidth;
-            badge.classList.add('nudge');
-        }
-    }, 8000);
+Paris, France • Sep 2025
 
-    // ===== BADGE CLICK =====
-    badge.onclick = () => {
-        modal.classList.remove('hidden');
-        modal.classList.remove('modal-exit');
-        modal.classList.add('modal-enter');
-        badge.style.opacity = '0';
-        badge.style.pointerEvents = 'none';
-        modalOpen = true;
-        animateSavingsCounter();
-        renderReviews();
-        trackEvent('widget_opened');
-    };
+★★★★★
+"Pure perfection. The villa is even more beautiful than the photos. The private chef experience was the highlight of our trip."
 
-    // ===== CLOSE MODAL =====
-    closeBtn.onclick = () => {
-        modal.classList.remove('modal-enter');
-        modal.classList.add('modal-exit');
-        modalOpen = false;
-        setTimeout(() => {
-            modal.classList.add('hidden');
-        }, 300);
-        badge.style.opacity = '1';
-        badge.style.pointerEvents = 'auto';
-        trackEvent('widget_closed');
-    };
+MB
+Marco B. 🇮🇹
 
-    document.addEventListener('click', (e) => {
-        if (modalOpen && !modal.contains(e.target) && !badge.contains(e.target)) {
-            closeBtn.click();
-        }
-    });
+Milan, Italy • Aug 2025
 
-    // ===== SAVINGS COUNTER =====
-    let counterAnimated = false;
-    function animateSavingsCounter() {
-        if (counterAnimated) return;
-        counterAnimated = true;
-        let current = 0;
-        const target = savings;
-        const duration = 1200;
-        const stepTime = 20;
-        const steps = duration / stepTime;
-        const increment = target / steps;
-        const counter = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(counter);
-            }
-            savingsAmount.textContent = `${WIDGET_CONFIG.currency}${Math.round(current).toLocaleString()}`;
-        }, stepTime);
-    }
+★★★★★
+"Exceptional in every way. The location is private yet close to Mykonos Town. We felt like royalty for a week."
 
-    // ===== REVIEWS RENDERER =====
-    let reviewsRendered = false;
-    function renderReviews() {
-        if (reviewsRendered) return;
-        reviewsRendered = true;
-        WIDGET_CONFIG.reviews.forEach((rev, i) => {
-            const div = document.createElement('div');
-            div.className = 'review-stagger border-b border-slate-50 last:border-0 pb-5 last:pb-0';
-            div.style.animationDelay = `${0.15 + (i * 0.12)}s`;
-            const starsHtml = '\u2605'.repeat(rev.stars);
-            div.innerHTML = `
-                <div class="flex items-center justify-between mb-2.5">
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 bg-[#1e293b] rounded-full flex items-center justify-center font-bold text-[#d4a853] text-[10px] uppercase tracking-wide">${rev.initials}</div>
-                        <div>
-                            <p class="text-[12px] font-bold text-slate-800">${rev.name} ${rev.flag}</p>
-                            <p class="text-[10px] text-slate-400 font-medium">${rev.location} &bull; ${rev.date}</p>
-                        </div>
-                    </div>
-                    <span class="text-[#d4a853] text-[11px]">${starsHtml}</span>
-                </div>
-                <p class="text-[12px] leading-relaxed text-slate-600 font-medium italic pl-12">"${rev.text}"</p>
-            `;
-            list.appendChild(div);
-        });
-    }
-
-    // ===== CTA HANDLER =====
-    ctaBtn.onclick = () => {
-        trackEvent('cta_clicked');
-        if (WIDGET_CONFIG.bookingUrl && WIDGET_CONFIG.bookingUrl !== '#book-direct') {
-            const target = document.querySelector(WIDGET_CONFIG.bookingUrl) || document.querySelector('[data-booking-engine]');
-            if (target && WIDGET_CONFIG.bookingUrl.startsWith('#')) {
-                target.scrollIntoView({ behavior: 'smooth' });
-                closeBtn.click();
-            } else {
-                window.location.href = WIDGET_CONFIG.bookingUrl;
-            }
-        }
-    };
-
-    // ===== ANALYTICS =====
-    const widgetAnalytics = { propertyName: WIDGET_CONFIG.propertyName, otaSource: WIDGET_CONFIG.otaSource, impressions: 0, opens: 0, ctaClicks: 0, closes: 0, timeSpentMs: 0, sessions: [] };
-    function trackEvent(event) {
-        const timestamp = new Date().toISOString();
-        switch(event) {
-            case 'impression': widgetAnalytics.impressions++; break;
-            case 'widget_opened': widgetAnalytics.opens++; widgetAnalytics._openTime = Date.now(); break;
-            case 'widget_closed': widgetAnalytics.closes++; if (widgetAnalytics._openTime) { const s = Date.now() - widgetAnalytics._openTime; widgetAnalytics.timeSpentMs += s; widgetAnalytics.sessions.push({ duration: s, timestamp }); delete widgetAnalytics._openTime; } break;
-            case 'cta_clicked': widgetAnalytics.ctaClicks++; break;
-        }
-        const ctr = widgetAnalytics.impressions > 0 ? ((widgetAnalytics.opens / widgetAnalytics.impressions) * 100).toFixed(1) : 0;
-        const convRate = widgetAnalytics.opens > 0 ? ((widgetAnalytics.ctaClicks / widgetAnalytics.opens) * 100).toFixed(1) : 0;
-        console.log(`[DirectShield Analytics]`, JSON.stringify({ ...widgetAnalytics, ctr: `${ctr}%`, conversionRate: `${convRate}%`, lastEvent: event, lastEventTime: timestamp }, null, 2));
-    }
-    trackEvent('impression');
-    </script>
-</body>
-</html>
+Book Direct & Save €360
+Verified by DirectShield Trust Engine
