@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your 14-Day Free Trial — DirectShield</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4a853;
+            --gold-light: #e8b960;
+            --navy: #1e293b;
+            --navy-deep: #0f172a;
+        }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: linear-gradient(135deg, #fafaf8 0%, #f5f1e8 100%);
+            color: #1e293b; 
+        }
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        
+        /* Hero gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+        }
+        
+        /* Gold accent */
+        .gold-accent { color: var(--gold); }
+        .gold-border { border-color: var(--gold); }
+        .gold-bg { background-color: var(--gold); }
+        
+        /* Form input styling */
+        .form-input {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.1);
+        }
+        
+        /* Button styling */
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy-deep);
+            border: none;
+            border-radius: 8px;
+            padding: 14px 32px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 168, 83, 0.3);
+        }
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Success message */
+        .success-message {
+            background: #ecfdf5;
+            border: 1px solid #86efac;
+            color: #166534;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        /* Error message */
+        .error-message {
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            color: #991b1b;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .error-message.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Fade in */
+        .fade-in {
+            animation: fadeIn 0.8s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Benefits list */
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+        }
+        .benefit-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy-deep);
+            font-weight: bold;
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-filter backdrop-blur-md bg-white/80">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-xl font-bold text-navy">
+                <span class="gold-accent">DirectShield</span>
+            </a>
+            <a href="/" class="text-sm text-slate-600 hover:text-navy transition">← Back to Demo</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-gradient text-white pt-32 pb-16">
+        <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+            <h1 class="font-serif text-5xl font-light mb-4">
+                Start Your <span class="gold-accent">14-Day Free Trial</span>
+            </h1>
+            <p class="text-lg text-slate-300 mb-2">
+                No credit card required. Cancel anytime.
+            </p>
+            <p class="text-sm text-slate-400">
+                Join luxury villa owners capturing direct bookings and saving thousands in OTA commissions.
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-5xl mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <!-- Form Section -->
+            <div class="lg:col-span-2 fade-in">
+                <div class="bg-white rounded-12 p-8 shadow-sm border border-slate-100">
+                    <h2 class="text-2xl font-bold text-navy mb-6">Get Started in 2 Minutes</h2>
+                    
+                    <!-- Success Message -->
+                    <div class="success-message" id="successMessage">
+                        <p class="font-semibold">✓ Success!</p>
+                        <p class="text-sm mt-1">We've received your information. Check your email for next steps.</p>
+                    </div>
+                    
+                    <!-- Error Message -->
+                    <div class="error-message" id="errorMessage"></div>
+                    
+                    <!-- Form -->
+                    <form id="signupForm" class="space-y-5">
+                        <!-- Email -->
+                        <div>
+                            <label class="block text-sm font-semibold text-navy mb-2">
+                                Email Address <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="email" 
+                                name="email" 
+                                class="form-input w-full" 
+                                placeholder="you@example.com"
+                                required
+                            />
+                            <p class="text-xs text-slate-500 mt-1">We'll send your trial link here</p>
+                        </div>
+                        
+                        <!-- Property Name -->
+                        <div>
+                            <label class="block text-sm font-semibold text-navy mb-2">
+                                Property Name <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                name="propertyName" 
+                                class="form-input w-full" 
+                                placeholder="e.g., Villa Aether Mykonos"
+                                required
+                            />
+                        </div>
+                        
+                        <!-- Location -->
+                        <div>
+                            <label class="block text-sm font-semibold text-navy mb-2">
+                                Property Location <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                name="location" 
+                                class="form-input w-full" 
+                                placeholder="e.g., Mykonos, Greece"
+                                required
+                            />
+                        </div>
+                        
+                        <!-- OTA Platform -->
+                        <div>
+                            <label class="block text-sm font-semibold text-navy mb-2">
+                                Primary OTA Platform <span class="text-red-500">*</span>
+                            </label>
+                            <select name="otaPlatform" class="form-input w-full" required>
+                                <option value="">Select your primary OTA</option>
+                                <option value="Booking.com">Booking.com</option>
+                                <option value="Airbnb">Airbnb</option>
+                                <option value="Agoda">Agoda</option>
+                                <option value="Expedia">Expedia</option>
+                                <option value="VRBO">VRBO</option>
+                                <option value="Multiple">Multiple platforms</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Website URL -->
+                        <div>
+                            <label class="block text-sm font-semibold text-navy mb-2">
+                                Your Website URL
+                            </label>
+                            <input 
+                                type="url" 
+                                name="website" 
+                                class="form-input w-full" 
+                                placeholder="https://example.com"
+                            />
+                            <p class="text-xs text-slate-500 mt-1">Optional — we'll help you install DirectShield</p>
+                        </div>
+                        
+                        <!-- Terms -->
+                        <div class="pt-2">
+                            <label class="flex items-start gap-3 cursor-pointer">
+                                <input 
+                                    type="checkbox" 
+                                    name="terms" 
+                                    class="mt-1 w-4 h-4 accent-gold" 
+                                    required
+                                />
+                                <span class="text-sm text-slate-600">
+                                    I agree to the <a href="#" class="gold-accent font-semibold hover:underline">Terms of Service</a> and <a href="#" class="gold-accent font-semibold hover:underline">Privacy Policy</a>
+                                </span>
+                            </label>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button 
+                            type="submit" 
+                            class="btn-primary w-full mt-6 text-base"
+                            id="submitBtn"
+                        >
+                            Start Your Free Trial
+                        </button>
+                        
+                        <p class="text-xs text-slate-500 text-center mt-4">
+                            No credit card required • Cancel anytime • 14 days free
+                        </p>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Benefits Section -->
+            <div class="fade-in" style="animation-delay: 0.1s">
+                <div class="sticky top-32">
+                    <h3 class="text-xl font-bold text-navy mb-6">What You Get</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div>
+                                <p class="font-semibold text-navy text-sm">Full Widget Access</p>
+                                <p class="text-xs text-slate-600">All features unlocked for 14 days</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div>
+                                <p class="font-semibold text-navy text-sm">10-Minute Setup</p>
+                                <p class="text-xs text-slate-600">Paste one line of code, you're live</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div>
+                                <p class="font-semibold text-navy text-sm">Real-Time Analytics</p>
+                                <p class="text-xs text-slate-600">Track direct booking conversions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div>
+                                <p class="font-semibold text-navy text-sm">No Credit Card</p>
+                                <p class="text-xs text-slate-600">Trial expires automatically</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div>
+                                <p class="font-semibold text-navy text-sm">Email Support</p>
+                                <p class="text-xs text-slate-600">We're here to help you succeed</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ROI Card -->
+                    <div class="mt-8 bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-lg p-6">
+                        <p class="text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2">Quick ROI Math</p>
+                        <p class="text-2xl font-bold text-navy mb-2">
+                            <span class="gold-accent">1 booking</span> = 3.3x ROI
+                        </p>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            A €800/night villa needs just one extra direct booking per month to pay for DirectShield. In peak season, ROI reaches 16x+.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="border-t border-slate-200 bg-white py-12 mt-16">
+        <div class="max-w-6xl mx-auto px-6 text-center text-sm text-slate-600">
+            <p>DirectShield © 2026 • <a href="#" class="gold-accent hover:underline">Privacy Policy</a> • <a href="#" class="gold-accent hover:underline">Terms of Service</a></p>
+        </div>
+    </div>
+
+    <!-- Form Handler -->
+    <script>
+        const form = document.getElementById('signupForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Hide previous messages
+            successMessage.classList.remove('show');
+            errorMessage.classList.remove('show');
+            
+            // Disable button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+            
+            // Collect form data
+            const formData = {
+                email: form.email.value.trim(),
+                propertyName: form.propertyName.value.trim(),
+                location: form.location.value.trim(),
+                otaPlatform: form.otaPlatform.value,
+                website: form.website.value.trim() || 'Not provided',
+                timestamp: new Date().toISOString(),
+                source: 'directshield-signup-page'
+            };
+            
+            try {
+                // Send to backend (we'll use a simple email service)
+                // For now, we'll send to a webhook or email service
+                const response = await fetch('/api/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    successMessage.classList.add('show');
+                    form.reset();
+                    submitBtn.textContent = 'Start Your Free Trial';
+                    submitBtn.disabled = false;
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    throw new Error('Failed to submit form');
+                }
+            } catch (error) {
+                // Show error message
+                errorMessage.textContent = 'Something went wrong. Please try again or email admin@directshield.io';
+                errorMessage.classList.add('show');
+                submitBtn.textContent = 'Start Your Free Trial';
+                submitBtn.disabled = false;
+                
+                // Log error for debugging
+                console.error('Form submission error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
