@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DirectShield - ROI Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: #d4af37;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 30px 0;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            color: #d4af37;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .math-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .math-row:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-size: 14px;
+            color: #555;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .value {
+            font-size: 16px;
+            color: #1a1a2e;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .highlight-value {
+            color: #d4af37;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .roi-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .roi-label {
+            font-size: 12px;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .roi-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: #d4af37;
+            margin-bottom: 5px;
+        }
+
+        .roi-text {
+            font-size: 13px;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #d4af37;
+            color: #1a1a2e;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #e5c158;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .roi-number {
+                font-size: 28px;
+            }
+
+            .math-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .value {
+                text-align: left;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">DirectShield</div>
+            <div class="tagline">ROI Calculator</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Monthly Cost Section -->
+        <div class="section">
+            <div class="section-title">Monthly Investment</div>
+            <div class="math-row">
+                <span class="label">DirectShield Cost</span>
+                <span class="value">$49/month</span>
+            </div>
+        </div>
+
+        <!-- Break-Even Section -->
+        <div class="section">
+            <div class="section-title">Break-Even Point</div>
+            <div class="math-row">
+                <span class="label">Direct Bookings Needed</span>
+                <span class="value highlight-value">0.23 bookings</span>
+            </div>
+            <div style="font-size: 12px; color: #999; margin-top: 10px;">
+                That's less than 1 booking per month
+            </div>
+        </div>
+
+        <!-- ROI Section -->
+        <div class="section">
+            <div class="section-title">Return on Investment</div>
+            
+            <div class="roi-box">
+                <div class="roi-label">Per Direct Booking</div>
+                <div class="roi-number">3.3x</div>
+                <div class="roi-text">
+                    Average villa saves €144 per booking<br>
+                    (18% OTA commission on €800/night)
+                </div>
+            </div>
+
+            <div class="roi-box" style="margin-top: 15px;">
+                <div class="roi-label">Peak Season (4 bookings/month)</div>
+                <div class="roi-number">11.8x</div>
+                <div class="roi-text">
+                    Monthly savings: €576<br>
+                    Annual savings: €6,912
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="footer">
+            <p>Based on average €800/night villa with 18% OTA commission</p>
+        </div>
+
+        <button class="cta-button" onclick="window.location.href='https://directshield.vercel.app/signup.html'">
+            Start Your Free Trial
+        </button>
+    </div>
+</body>
+</html>
