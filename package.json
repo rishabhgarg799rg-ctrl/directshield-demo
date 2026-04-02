@@ -1,0 +1,16 @@
+{
+  "name": "directshield-demo",
+  "version": "1.0.0",
+  "description": "DirectShield - Trust Widget for luxury villas and boutique hotels",
+  "main": "api/signup.js",
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  },
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'No build needed'"
+  },
+  "keywords": ["directshield", "booking", "widget"],
+  "author": "Rishabh Garg",
+  "license": "MIT"
+}
