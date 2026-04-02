@@ -1,5 +1,7 @@
 // Vercel Serverless Function to handle DirectShield signup form submissions
-// This sends form data to admin@directshield.io via email
+// Uses Google Workspace SMTP to send form data to admin@directshield.io
+
+import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
   // Only allow POST requests
@@ -21,133 +23,102 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Invalid email format' });
     }
 
-    // Prepare email content
-    const emailContent = `
-New DirectShield Trial Signup
-
-Property Details:
-- Property Name: ${propertyName}
-- Location: ${location}
-- Primary OTA: ${otaPlatform}
-- Website: ${website}
-
-Contact Information:
-- Email: ${email}
-
-Submission Details:
-- Source: ${source}
-- Timestamp: ${timestamp}
-
----
-This is an automated message from DirectShield signup form.
-    `.trim();
-
-    // Use Resend or SendGrid (if configured)
-    // For now, we'll use a simple approach with environment variables
-    
-    // Option 1: Using Resend (recommended for Vercel)
-    if (process.env.RESEND_API_KEY) {
-      const { Resend } = await import('resend');
-      const resend = new Resend(process.env.RESEND_API_KEY);
-
-      const result = await resend.emails.send({
-        from: 'DirectShield <noreply@directshield.io>',
-        to: 'admin@directshield.io',
-        subject: `New Trial Signup: ${propertyName}`,
-        html: `
-          <h2>New DirectShield Trial Signup</h2>
-          <h3>Property Details</h3>
-          <ul>
-            <li><strong>Property Name:</strong> ${propertyName}</li>
-            <li><strong>Location:</strong> ${location}</li>
-            <li><strong>Primary OTA:</strong> ${otaPlatform}</li>
-            <li><strong>Website:</strong> ${website}</li>
-          </ul>
-          <h3>Contact Information</h3>
-          <ul>
-            <li><strong>Email:</strong> ${email}</li>
-          </ul>
-          <h3>Submission Details</h3>
-          <ul>
-            <li><strong>Source:</strong> ${source}</li>
-            <li><strong>Timestamp:</strong> ${timestamp}</li>
-          </ul>
-        `
-      });
-
-      if (result.error) {
-        console.error('Resend error:', result.error);
-        return res.status(500).json({ error: 'Failed to send email' });
-      }
-
-      return res.status(200).json({ 
-        success: true, 
-        message: 'Signup received. Check your email for next steps.',
-        id: result.data?.id 
-      });
-    }
-
-    // Option 2: Using SendGrid
-    if (process.env.SENDGRID_API_KEY) {
-      const sgMail = require('@sendgrid/mail');
-      sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-      const msg = {
-        to: 'admin@directshield.io',
-        from: 'noreply@directshield.io',
-        subject: `New Trial Signup: ${propertyName}`,
-        html: `
-          <h2>New DirectShield Trial Signup</h2>
-          <h3>Property Details</h3>
-          <ul>
-            <li><strong>Property Name:</strong> ${propertyName}</li>
-            <li><strong>Location:</strong> ${location}</li>
-            <li><strong>Primary OTA:</strong> ${otaPlatform}</li>
-            <li><strong>Website:</strong> ${website}</li>
-          </ul>
-          <h3>Contact Information</h3>
-          <ul>
-            <li><strong>Email:</strong> ${email}</li>
-          </ul>
-          <h3>Submission Details</h3>
-          <ul>
-            <li><strong>Source:</strong> ${source}</li>
-            <li><strong>Timestamp:</strong> ${timestamp}</li>
-          </ul>
-        `
-      };
-
-      await sgMail.send(msg);
-
-      return res.status(200).json({ 
-        success: true, 
-        message: 'Signup received. Check your email for next steps.' 
-      });
-    }
-
-    // Option 3: Fallback - Log to console (for development)
-    console.log('Signup form submission:', {
-      email,
-      propertyName,
-      location,
-      otaPlatform,
-      website,
-      timestamp,
-      source
+    // Create Nodemailer transporter using Google Workspace SMTP
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false, // Use TLS
+      auth: {
+        user: process.env.GOOGLE_WORKSPACE_EMAIL, // admin@directshield.io
+        pass: process.env.GOOGLE_WORKSPACE_APP_PASSWORD, // 16-character app password
+      },
     });
 
-    // Return success even without email service (for testing)
-    return res.status(200).json({ 
-      success: true, 
+    // Prepare email content for admin notification
+    const emailContent = `
+      <h2>New DirectShield Trial Signup</h2>
+      <p>A new property owner has signed up for DirectShield trial:</p>
+      
+      <h3>Property Details:</h3>
+      <ul>
+        <li><strong>Property Name:</strong> ${propertyName}</li>
+        <li><strong>Location:</strong> ${location}</li>
+        <li><strong>Primary OTA:</strong> ${otaPlatform}</li>
+        <li><strong>Website:</strong> ${website || 'Not provided'}</li>
+      </ul>
+      
+      <h3>Contact Information:</h3>
+      <ul>
+        <li><strong>Email:</strong> ${email}</li>
+      </ul>
+      
+      <h3>Submission Details:</h3>
+      <ul>
+        <li><strong>Timestamp:</strong> ${timestamp}</li>
+        <li><strong>Source:</strong> ${source || 'Direct signup'}</li>
+      </ul>
+      
+      <hr>
+      <p><strong>Next Steps:</strong></p>
+      <ol>
+        <li>Review the property details</li>
+        <li>Send trial activation link to ${email}</li>
+        <li>Follow up within 24 hours</li>
+      </ol>
+    `;
+
+    // Send email to admin
+    const result = await transporter.sendMail({
+      from: `DirectShield <${process.env.GOOGLE_WORKSPACE_EMAIL}>`,
+      to: process.env.GOOGLE_WORKSPACE_EMAIL, // admin@directshield.io
+      subject: `New Trial Signup: ${propertyName}`,
+      html: emailContent,
+    });
+
+    // Also send confirmation email to the user
+    const userConfirmationEmail = `
+      <h2>Welcome to DirectShield!</h2>
+      <p>Thank you for signing up for your 14-day free trial.</p>
+      
+      <h3>Your Trial Details:</h3>
+      <ul>
+        <li><strong>Property:</strong> ${propertyName}</li>
+        <li><strong>Location:</strong> ${location}</li>
+        <li><strong>Trial Duration:</strong> 14 days</li>
+      </ul>
+      
+      <h3>What's Next:</h3>
+      <ol>
+        <li>We'll send you a setup guide within 24 hours</li>
+        <li>Installation takes just 10 minutes</li>
+        <li>Start capturing direct bookings immediately</li>
+      </ol>
+      
+      <p><strong>Need help?</strong> Reply to this email or visit our documentation.</p>
+      
+      <hr>
+      <p>Best regards,  
+The DirectShield Team</p>
+    `;
+
+    await transporter.sendMail({
+      from: `DirectShield <${process.env.GOOGLE_WORKSPACE_EMAIL}>`,
+      to: email,
+      subject: 'Welcome to DirectShield - Your 14-Day Free Trial Starts Now',
+      html: userConfirmationEmail,
+    });
+
+    return res.status(200).json({
+      success: true,
       message: 'Signup received. Check your email for next steps.',
-      note: 'Email service not configured. Contact admin@directshield.io to complete setup.'
+      id: result.messageId,
     });
 
   } catch (error) {
-    console.error('Signup API error:', error);
+    console.error('Email sending error:', error);
     return res.status(500).json({ 
-      error: 'Internal server error',
-      message: error.message 
+      error: 'Failed to send email',
+      details: error.message 
     });
   }
 }
